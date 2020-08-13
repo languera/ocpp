@@ -9,11 +9,14 @@ class Action:
     ClearChargingProfile = "ClearChargingProfile"
     DataTransfer = "DataTransfer"
     DiagnosticsStatusNotification = "DiagnosticsStatusNotification"
+    ExtendedTriggerMessage = "ExtendedTriggerMessage"
     FirmwareStatusNotification = "FirmwareStatusNotification"
     GetCompositeSchedule = "GetCompositeSchedule"
     GetConfiguration = "GetConfiguration"
     ClearChargingProfile = "ClearChargingProfile"
     GetDiagnostics = "GetDiagnostics"
+    GetInstalledCertificateIds = "GetInstalledCertificateIds"
+    InstallCertificate = "InstallCertificate"
     GetLocalListVersion = "GetLocalListVersion"
     Heartbeat = "Heartbeat"
     MeterValues = "MeterValues"
@@ -21,9 +24,11 @@ class Action:
     RemoteStopTransaction = "RemoteStopTransaction"
     ReserveNow = "ReserveNow"
     Reset = "Reset"
+    SecurityEventNotification = "SecurityEventNotification"
     SendLocalList = "SendLocalList"
     SetChargingProfile = "SetChargingProfile"
     StartTransaction = "StartTransaction"
+    SignCertificate= "SignCertificate"
     StatusNotification = "StatusNotification"
     StopTransaction = "StopTransaction"
     TriggerMessage = "TriggerMessage"
@@ -242,6 +247,30 @@ class DiagnosticsStatus:
     uploading = "Uploading"
 
 
+class ExtendedMessageTrigger:
+    """
+    Type of request to be triggered in a ExtendedTriggerMessage.req
+    """
+
+    bootNotification = "BootNotification"
+    diagnosticsStatusNotification = "DiagnosticsStatusNotification"
+    firmwareStatusNotification = "FirmwareStatusNotification"
+    heartbeat = "Heartbeat"
+    meterValues = "MeterValues"
+    signChargePointCertificate = "SignChargePointCertificate"
+    statusNotification = "StatusNotification"
+    
+    
+class ExtendedTriggerMessageStatus:
+    """
+    Status in ExtendedTriggerMessage.conf.
+    """
+
+    accepted = "Accepted"
+    rejected = "Rejected"
+    notImplemented = "NotImplemented"
+    
+
 class FirmwareStatus:
     """
     Status of a firmware download as reported in FirmwareStatusNotification.req
@@ -262,6 +291,15 @@ class GetCompositeScheduleStatus:
     """
 
     accepted = "Accepted"
+    rejected = "Rejected"
+    
+class InstallCertificateStatus:
+    """
+    Status returned in response to InstallCertificate.req
+    """
+
+    accepted = "Accepted"
+    failed = "Failed"
     rejected = "Rejected"
 
 
@@ -432,6 +470,31 @@ class ResetType:
 
     hard = "Hard"
     soft = "Soft"
+    
+class SecurityEventNotificationType:
+    """
+    Type of event notify by SecurityEventNotification.req
+    """
+
+    firmwareUpdate = "FirmwareUpdate"
+    failedToAuthenticateAtCentralSystem = "FailedToAuthenticateAtCentralSystem"
+    failedToAuthenticateAtCentralSystem = "FailedToAuthenticateAtCentralSystem"
+    settingSystemTime = "SettingSystemTime"
+    startupOfTheDevice = "StartupOfTheDevice"
+    resetOrReboot = "ResetOrReboot"
+    securityLogWasCleared = "SecurityLogWasCleared"
+    reconfigurationOfSecurityParameters = "ReconfigurationOfSecurityParameters"
+    memoryExhaustion = "MemoryExhaustion"
+    invalidMessages = "InvalidMessages"
+    attemptedReplayAttacks = "AttemptedReplayAttacks"
+    tamperDetectionActivated = "TamperDetectionActivated"
+    invalidFirmwareSignature = "InvalidFirmwareSignature"
+    invalidFirmwareSigningCertificate = "InvalidFirmwareSigningCertificate"
+    invalidCentralSystemCertificate = "InvalidCentralSystemCertificate"
+    invalidChargePointCertificate = "InvalidChargePointCertificate"
+    invalidTLSVersion = "InvalidTLSVersion"
+    invalidTLSCipherSuite = "InvalidTLSCipherSuite"
+    
 
 
 class TriggerMessageStatus:

@@ -1,0 +1,44 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "comment": "OCPP 2.0 - v1p0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "additionalProperties": false,
+      "enum": [
+        "FirmwareUpdated",
+        "FailedToAuthenticateAtCentralSystem",
+		"CentralSystemFailedToAuthenticate",
+		"SettingSystemTime",
+		"StartupOfTheDevice",
+		"ResetOrReboot",
+		"SecurityLogWasCleared",
+		"ReconfigurationOfSecurityParameters",
+		"MemoryExhaustion",
+		"InvalidMessages",
+		"AttemptedReplayAttacks",
+		"TamperDetectionActivated",
+		"InvalidFirmwareSignature",
+		"InvalidFirmwareSigningCertificate",
+		"InvalidCentralSystemCertificate",
+		"InvalidChargePointCertificate",
+		"InvalidTLSVersion",
+		"InvalidTLSCipherSuite"
+      ]
+    },
+    "timestamp": {
+      "type": "string"
+	  "format": "date-time"
+    },
+	"techInfo" : {
+      "type" : "string"
+	  "maxLength" : 255
+	}
+  },
+  "required": [
+    "type",
+    "timestamp"
+  ]
+}

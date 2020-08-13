@@ -55,6 +55,14 @@ class MeterValuesPayload:
 class StartTransactionPayload:
     transaction_id: int
     id_tag_info: Dict
+    
+@dataclass
+class SecurityEventNotificationPayload:
+    pass
+    
+@dataclass
+class SignCertificatePayload:
+    status: str
 
 
 @dataclass
@@ -94,6 +102,11 @@ class ClearCachePayload:
 @dataclass
 class ClearChargingProfilePayload:
     status: str
+    
+    
+@dataclass
+class ExtendedTriggerMessagePayload:
+    status: str
 
 
 @dataclass
@@ -113,11 +126,21 @@ class GetConfigurationPayload:
 @dataclass
 class GetDiagnosticsPayload:
     file_name: str = None
+    
+    
+@dataclass
+class GetInstalledCertificateIdsPayload:
+    status: str
+    certificateHashData: Dict = None
 
 
 @dataclass
 class GetLocalListVersionPayload:
     list_version: int
+    
+@dataclass
+class InstallCertificatePayload:
+    status: str
 
 
 @dataclass

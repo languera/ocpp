@@ -18,7 +18,12 @@ from dataclasses import dataclass, field
 # The now following section of classes are for CALL messages that flow
 # from Central System to Charge Point.
 
-
+@dataclass
+class ExtendedTriggerMessagePayload:
+    requested_message: str
+    connector_id: int = None
+    
+    
 @dataclass
 class CancelReservationPayload:
     reservation_id: int
@@ -68,19 +73,26 @@ class GetDiagnosticsPayload:
     retry_interval: int = None
     start_time: str = None
     stop_time: str = None
+    
+@dataclass
+class GetInstalledCertificateIdsPayload:
+    certificateType: str
 
 
 @dataclass
 class GetLocalListVersionPayload:
     pass
 
+@dataclass
+class InstallCertificatePayload:
+    certificate_type: str
+    certificate : str
 
 @dataclass
 class RemoteStartTransactionPayload:
     id_tag: str
     connector_id: int = None
     charging_profile: Dict = None
-
 
 @dataclass
 class RemoteStopTransactionPayload:
@@ -177,6 +189,12 @@ class MeterValuesPayload:
 
 
 @dataclass
+class SecurityEventNotificationPayload:
+    type: str
+    timestamp: str
+    techInfo: str = None
+
+@dataclass
 class StartTransactionPayload:
     connector_id: int
     id_tag: str
@@ -184,6 +202,9 @@ class StartTransactionPayload:
     timestamp: str
     reservation_id: int = None
 
+@dataclass
+class SignCertificatePayload:
+    csr: str
 
 @dataclass
 class StopTransactionPayload:
