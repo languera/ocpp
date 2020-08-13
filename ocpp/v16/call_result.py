@@ -83,6 +83,11 @@ class StopTransactionPayload:
 class CancelReservationPayload:
     status: str
 
+    
+@dataclass
+class CertificateSignedPayload:
+    status: str
+
 
 @dataclass
 class ChangeAvailabilityPayload:

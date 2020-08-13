@@ -23,6 +23,11 @@ class ExtendedTriggerMessagePayload:
     requested_message: str
     connector_id: int = None
     
+
+@dataclass
+class CertificateSignedPayload:
+    certificate_chain: str
+    
     
 @dataclass
 class CancelReservationPayload:
@@ -193,6 +198,7 @@ class SecurityEventNotificationPayload:
     type: str
     timestamp: str
     techInfo: str = None
+    
 
 @dataclass
 class StartTransactionPayload:

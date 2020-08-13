@@ -3,6 +3,7 @@ class Action:
     Authorize = "Authorize"
     BootNotification = "BootNotification"
     CancelReservation = "CancelReservation"
+    CertificateSigned = "CertificateSigned"
     ChangeAvailability = "ChangeAvailability"
     ChangeConfiguration = "ChangeConfiguration"
     ClearCache = "ClearCache"
@@ -72,6 +73,13 @@ class CancelReservationStatus:
     Status in CancelReservation.conf.
     """
 
+    accepted = "Accepted"
+    rejected = "Rejected"
+    
+class CertificateSignedStatus:
+    """
+    Status in CertificateSigned.conf.
+    """
     accepted = "Accepted"
     rejected = "Rejected"
 
